@@ -22,8 +22,8 @@ window.onload = function() {
   frame.height = rows * blockSize;
 
   // food and snake spawn positions generated
-  placeRandom(food);
   placeRandom(snake);
+  placeRandom(food);
 
   // key action
   document.addEventListener('keyup', moveHandler);
@@ -40,27 +40,42 @@ function update() {
   ctx.fillStyle = 'red';
   ctx.fillRect(food.x, food.y, blockSize, blockSize);
 
-  // snake growing
+
+  // snake eating food
+  if(snake.x == food.x && snake.y == food.y){
+    snake.body.push([food.x, food.y])
+    placeRandom(food);
+  }
+
+  for(let i = snake.body.length - 1; i > 0; i--) {
+    snake.body[i] = snake.body[i-1];
+  }
+
+  if(snake.body.length) {
+    snake.body[0] = [snake.x, snake.y];
+  }
+
 
   // snake spawn rendered
   ctx.fillStyle = 'green';
   snake.x += velocityX * blockSize;
   snake.y += velocityY * blockSize;
   ctx.fillRect(snake.x, snake.y, blockSize, blockSize);
-
-  // snake eating food
-  if(snake.x == food.x && snake.y == food.y){
-    placeRandom(food);
-    snake.body.push([food.x, food.y])
-    console.log(snake.body);
+  for (let i = 0; snake.body.length > i; i++) {
+    ctx.fillRect(snake.body[i][0], snake.body[i][1], blockSize, blockSize);
   }
+
 
   // snake crash head with wall
   if(snake.x < 0 || snake.y < 0 || snake.x >= cols * blockSize || snake.y >= rows * blockSize) {
     gameOver('You lose, Snake head crash happend!');
   }
-
-  // snake crash head with body
+  // if snake crash with her body
+  for (let i = 0; i < snake.body.length; i++) {
+    if(snake.x == snake.body[i][0] && snake.y == snake.body[i][1]) {
+      gameOver('You lose, body crash!');
+    }
+  }
 }
 
 function placeRandom(obj) {
