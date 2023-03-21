@@ -1,0 +1,15 @@
+let nums = [2, 7, 11, 15]
+let target = 9
+
+function twoSum(arr, target) {
+  for (let i = 0; i < arr.length; i++) {
+    let x = target - arr[i];
+    let checkNum = arr.lastIndexOf(x) ? arr.indexOf(x) : false;
+    if (checkNum) {
+      let numIndex = [i, checkNum];
+      return numIndex;
+    }
+  }
+}
+
+twoSum(nums, target);
