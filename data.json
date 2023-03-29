@@ -1,0 +1,7 @@
+{
+  "cars": [
+    {id: 1, name: 'bmw', model: 2020},
+    {id: 2, name: 'bmw', model: 1969},
+    {id: 3, name: 'bmw', model: 2018},
+  ]
+}
