@@ -1,18 +1,6 @@
-let x = (function() {
-  let counter = 0;
-  return function() {
-    counter += 1;
-    return counter;
-  };
-})();
-
-let y = (function() {
-  for (let i = 0; i < 10; i++) {
-    x();
-    if (i == 8) {
-      return x();
-    }
-  }
-})();
-
-console.log(y);
+const text = 'skdjfskdjfskjd';
+const arr = text.split('');
+const narr = Object.entries(arr);
+const arr2 = Object.fromEntries(narr);
+const arr3 = new Map(Object.entries(arr2));
+console.log(arr3);
