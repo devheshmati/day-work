@@ -1,6 +1,11 @@
-const text = 'skdjfskdjfskjd';
-const arr = text.split('');
-const narr = Object.entries(arr);
-const arr2 = Object.fromEntries(narr);
-const arr3 = new Map(Object.entries(arr2));
-console.log(arr3);
+function formHandler(e) {
+  e.preventDefault();
+  const content = document.querySelector('#content');
+  const input = document.getElementsByTagName('input')[0];
+  if(isNaN(input.value) || input.value < 0 || input.value > 10) {
+    content.innerHTML = "Invalid value";
+    return;
+  } else {
+    content.innerHTML = input.value;
+  }
+}

@@ -1,13 +1,20 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Daily work</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    
+    <form id="frm1" onsubmit="formHandler(event)">
+      <label for="input-01">number</label>
+      <input type="text" id="input-01" placeholder="enter your number"/>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="content"></p>
+
     <script src="./script.js"></script>
   </body>
 </html>
