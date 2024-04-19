@@ -5,10 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Daily work</title>
     <link rel="stylesheet" href="style.css" />
+
+    <!--add scripts-->
+    <script src="./script.js" defer></script>
   </head>
 
   <body>
-
-    <script src="./script.js"></script>
+    <div>
+      <h1>Showing date time</h1>
+    </div>
+    <div>
+      <button type="button" onclick="handleClick()">Show Date</button>
+    </div>
+    <div>
+      <p>The date is:</p>
+      <p id="date-container"></p>
+    </div>
   </body>
+
+  <script>
+    const handleClick = () => {
+      document.getElementById("date-container").innerText = Date();
+    };
+  </script>
 </html>
